@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Link {
+  id          String    @id @default(cuid())
+  originalUrl String
+  slug        String    @unique
+  alias       String?   @unique
+  createdAt   DateTime  @default(now())
+  goLiveAt    DateTime?
+  expiresAt   DateTime?
+  maxClicks   Int?
+
+  clicks      Click[]
+}
+
+model Click {
+  id        String   @id @default(cuid())
+  linkId    String
+  link      Link     @relation(fields: [linkId], references: [id])
+  clickedAt DateTime @default(now())
+  referrer  String?
+  device    String?
+  country   String?
+  city      String?
+  ip        String?
+  isUnique  Boolean  @default(false)
+}

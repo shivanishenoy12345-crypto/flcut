@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
-import { generateUniqueSlug, isReserved } from "@/lib/generateSlug";
+import { prisma } from "@/src/lib/prisma";
+import { generateUniqueSlug, isReserved } from "@/src/lib/generateSlug";
 
 export async function POST(req: NextRequest) {
   try {

@@ -1,7 +1,7 @@
-import { prisma } from "@/src/lib/prisma";
-import { isBot } from "@/src/lib/isBot";
-import { getDeviceType } from "@/src/types/index";
-import { getLocation } from "@/src/lib/getLocation";
+import { prisma } from "@/lib/prisma";
+import { isBot } from "@/lib/isBot";
+import { getDeviceType } from "@/types/index";
+import { getLocation } from "@/lib/getLocation";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 

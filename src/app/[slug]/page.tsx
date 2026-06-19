@@ -8,9 +8,9 @@ import { redirect } from "next/navigation";
 export default async function SlugPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } = params;
+  const { slug } = await params;
   const headersList = await headers();
 
   const userAgent = headersList.get("user-agent") || "";
